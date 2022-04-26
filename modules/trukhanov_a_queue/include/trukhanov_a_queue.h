@@ -5,18 +5,18 @@
 
 template <class T>
 class TQueue {
-protected:
+ protected:
     int length;
     T* x;
     int ind;
     int end;
     int count;
-public:
-    TQueue(int size = 0);
+ public:
+    explicit TQueue(int size = 0);
     TQueue(const TQueue<T>& q);
     ~TQueue();
 
-    TQueue<T>& operator =(TQueue<T>& _v);
+    TQueue<T>& operator =(const TQueue<T>& _v);
 
     void Push(T d);
     T Get();
@@ -26,17 +26,19 @@ public:
 
 template <class T>
 inline TQueue<T>::TQueue(int size) {
-    if (size > 0) {
-        this->length = size;
-        x = new T[length];
-        for (int i = 0; i < length; i++)
-            x[i] = 0;
-        this->ind = 0;
-        this->end = 0;
-        this->count = 0;
-    }
-    else
+    if (size <= 0) {
         throw "exception";
+    }
+
+    this->length = size;
+    x = new T[length];
+    for (int i = 0; i < length; i++)
+        x[i] = 0;
+    this->ind = 0;
+    this->end = 0;
+    this->count = 0;
+    
+        
 }
 
 template<class T>
@@ -47,10 +49,10 @@ TQueue<T>::TQueue(const TQueue<T>& q) {
     length = q.length;
     x = new T[length];
     for (int i = 0; i < length; i++) {
-        if (q.x[i] != NULL)
+        if (q.x[i] != nullptr)
             x[i] = q.x[i];
         else
-            x[i] = NULL;
+            x[i] = nullptr;
     }
 }
 
@@ -63,7 +65,7 @@ TQueue<T>::~TQueue() {
 }
 
 template <class T>
-TQueue<T>& TQueue<T>::operator =(TQueue<T>& _v) {
+TQueue<T>& TQueue<T>::operator =(const TQueue<T>& _v) {
     if (this == &_v)
         return *this;
 
@@ -93,7 +95,7 @@ inline T TQueue<T>::Get() {
         throw "exception";
     count--;
     T d = x[ind];
-    x[ind] = NULL;
+    x[ind] = nullptr;
     ind = (ind + 1) % length;
     return d;
 }
@@ -103,4 +105,4 @@ int TQueue<T>::Length() {
     return length;
 }
 
-#endif // MODULES_TRUKHANOV_A_QUEUE_INCLUDE_TRUKHANOV_A_QUEUE_H_
+#endif  // MODULES_TRUKHANOV_A_QUEUE_INCLUDE_TRUKHANOV_A_QUEUE_H_
