@@ -39,9 +39,9 @@ TEST(Queue, can_get_Lenght) {
 }
 
 TEST(Queue, can_assign_queue) {
-    TQueue<int> A(2);
-    A.Push(1);
-    TQueue<int> B(2);
-    B = A;
-    EXPECT_EQ(1, B.Get());
+    TQueue<int> A1(2);
+    A1.Push(1);
+    TQueue<int> A2(2);
+    A2 = A1;
+    EXPECT_EQ(1, A2.Get());
 }
