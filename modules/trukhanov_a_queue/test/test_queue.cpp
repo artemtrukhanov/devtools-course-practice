@@ -33,6 +33,11 @@ TEST(Queue, cant_get_if_empty) {
     ASSERT_ANY_THROW(A.Get());
 }
 
+TEST(Queue, can_get_Lenght) {
+    TQueue<int> A(2);
+    EXPECT_EQ(2, A.Length());
+}
+
 TEST(Queue, can_assign_queue) {
     TQueue<int> A(2);
     A.Push(1);
