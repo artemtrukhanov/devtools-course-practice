@@ -47,10 +47,10 @@ TQueue<T>::TQueue(const TQueue<T>& q) {
     length = q.length;
     x = new T[length];
     for (int i = 0; i < length; i++) {
-        if (q.x[i] != nullptr)
+        if (q.x[i] != std::nullptr_t)
             x[i] = q.x[i];
         else
-            x[i] = nullptr;
+            x[i] = std::nullptr_t;
     }
 }
 
@@ -93,7 +93,7 @@ inline T TQueue<T>::Get() {
         throw "exception";
     count--;
     T d = x[ind];
-    x[ind] = nullptr;
+    x[ind] = std::nullptr_t;
     ind = (ind + 1) % length;
     return d;
 }
