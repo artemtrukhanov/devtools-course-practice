@@ -37,8 +37,6 @@ inline TQueue<T>::TQueue(int size) {
     this->ind = 0;
     this->end = 0;
     this->count = 0;
-    
-        
 }
 
 template<class T>
