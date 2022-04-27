@@ -5,7 +5,7 @@
 #include "include/trukhanov_a_queue.h"
 
 TEST(Queue, can_create_queue_with_positive_length) {
-    ASSERT_NO_THROW(TQueue<int> bf(3));
+    ASSERT_NO_THROW(TQueue<int> A(3));
 }
 
 TEST(Queue, throws_when_create_queue_with_negative_length) {
